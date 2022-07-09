@@ -140,12 +140,10 @@ class Wallet:
         include_watchonly = True if include_watchonly is None else include_watchonly
         return self._node._rpc.call("listtransactions", label, count, skip, include_watchonly, exclude_custom_tx)
 
-    def listunspent(self, mincof=None, maxcof=None, addresses=None, include_unsafe=None, minimumAmount=None,
+    def listunspent(self, mincof=1, maxcof=9999999, addresses=None, include_unsafe=True, minimumAmount=0,
                     maximumAmount=None, maximumCount=None, minimumSumAmount=None, tokenId=None):  # 35
-        mincof = 1 if mincof is None else mincof
-        maxcof = 9999999 if maxcof is None else maxcof
-        addresses = [] if addresses is None else addresses
-        include_unsafe = True if include_unsafe is None else include_unsafe
+        if addresses is None:
+            addresses = []
         query_options = BuildJson()
         query_options.append("minimumAmount", minimumAmount)
         query_options.append("maximumAmount", maximumAmount)

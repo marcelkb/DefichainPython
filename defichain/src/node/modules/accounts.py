@@ -67,7 +67,7 @@ class Accounts:
         """
         return self._node._rpc.call("accounttoaccount", _from, to, inputs)
 
-    def accounttoutxos(self, _from, to, amount, inputs=None):  # 03
+    def accounttoutxos(self, _from, to, inputs=None):  # 03
         """
         Creates (and submits to local _node and network) a transfer transaction from the specified account to UTXOs.
         The third optional argument (may be empty array) is an array of specific UTXOs to spend.
@@ -128,7 +128,8 @@ class Accounts:
 
         return self._node._rpc.call("gettokenbalances", pagination.build(), indexed_amounts, symbol_lookup)
 
-    def listaccounthistory(self, owner, maxBlockHeight=None, depth=None, no_rewards=None, token=None, txtype=None, limit=None):  # 11
+    def listaccounthistory(self, owner, maxBlockHeight=None, depth=None, no_rewards=None, token=None, txtype=None,
+                           limit=None, txn=None):  # 11
         options = BuildJson()
         options.append("maxBlockHeight", maxBlockHeight)
         options.append("depth", depth)
@@ -136,6 +137,7 @@ class Accounts:
         options.append("token", token)
         options.append("txtype", txtype)
         options.append("limit", limit)
+        options.append("txn", txn)
 
         return self._node._rpc.call("listaccounthistory", owner, options.build())
 
@@ -172,7 +174,7 @@ class Accounts:
     def sendutxosfrom(self, _from, to, amount, change=None):  # 17
         return self._node._rpc.call("sendutxosfrom", _from, to, amount, change)
 
-    def utxostoaccount(self, to, amounts, inputs=None):  # 18
+    def utxostoaccount(self, amounts, inputs=None):  # 18
         '''
         amounts is a json string, f.e.
         amounts={'8SXhUhdxmHRwPnsXkQBbC58euip8hPSJx8': '0.00000005@DFI', 'dDbCcF2BpEjGqxxQ78iS7DUBb5wFYmyYW6': '0.00000015@DFI'}

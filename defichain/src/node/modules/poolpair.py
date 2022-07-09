@@ -60,9 +60,8 @@ class Poolpair:
     def removepoolliquidity(self, _from, poolSymbol, amount, inputs=None):  # 08
         return self._node._rpc.call("removepoolliquidity", _from, f"{amount}@{poolSymbol}", inputs)
 
-    def testpoolswap(self, _from, tokenFrom, amountFrom, to, tokenTo, maxPrice=None, path=None, verbose=None):  # 09
-        path = "direct" if path is None else path
-
+    def testpoolswap(self, _from, tokenFrom, amountFrom, to, tokenTo, maxPrice=None, path="direct",
+                     verbose=False):  # 09
         metadata = BuildJson()
         metadata.append("from", _from)
         metadata.append("tokenFrom", tokenFrom)

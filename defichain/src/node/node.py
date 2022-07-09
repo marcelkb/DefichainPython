@@ -51,7 +51,7 @@ class Node:
     def test_connection(self):
         p = Process(target=self.network.ping, name='ping')
         p.start()
-        p.join(timeout=3)
+        p.join(timeout=30)
         p.terminate()
 
         if p.exitcode is None:
