@@ -72,7 +72,10 @@ class Node:
             wallet_name = wallet_path
 
         # Setup URL
-        self.url = f"{protocol}://{user}:{password}@{url}:{port}/wallet/{wallet_name}"
+        if wallet_name != "":
+            self.url = f"{protocol}://{user}:{password}@{url}:{port}/wallet/{wallet_name}"
+        else:
+            self.url = f"{protocol}://{user}:{password}@{url}:{port}"
 
         # Setup all different modules
         self._rpc = RPC(self.url)
@@ -100,7 +103,8 @@ class Node:
         self.test_connection()
 
         # Prepare Wallet
-        self.load_wallet(wallet_path)
+        if wallet_path is not None and wallet_path != "":
+            self.load_wallet(wallet_path)
         self.decrypt_wallet(wallet_password, wallet_timeout)
 
     def decrypt_wallet(self, wallet_password: str, wallet_timeout: int):
