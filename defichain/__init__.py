@@ -1,3 +1,6 @@
-from .src.node.node import Node
-from .src.ocean.ocean import Ocean
-from .src.node.util import BuildToJson
+# Main Classes
+from defichain.node.node import Node
+from defichain.ocean.ocean import Ocean
+
+# Helping Classes
+from defichain.node.util import BuildToJson
