@@ -75,7 +75,7 @@ class Node:
         if wallet_name != "":
             self.url = f"{protocol}://{user}:{password}@{url}:{port}/wallet/{wallet_name}"
         else:
-            self.url = f"{protocol}://{user}:{password}@{url}:{port}"
+            self.url = f"{protocol}://{user}:{password}@{url}:{port}{wallet_path}"
 
         # Setup all different modules
         self._rpc = RPC(self.url)
