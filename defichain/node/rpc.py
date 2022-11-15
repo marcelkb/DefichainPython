@@ -20,7 +20,7 @@ class RPC(object):
                 filtered_params.append(param)
 
         payload = json.dumps({"method": rpc_method, "params": list(filtered_params), "jsonrpc": "2.0"})
-        if rpc_method == "walletpassphrase":
+        if rpc_method == "walletpassphrase" or rpc_method == "signrawtransactionwithkey":
             logging.debug(json.dumps({"method": rpc_method, "params": '***',"jsonrpc": "2.0"}))
         else:
             logging.debug(payload)
