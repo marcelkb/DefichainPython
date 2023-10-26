@@ -13,17 +13,17 @@
 import os
 import sys
 from typing import Any, Dict
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../..'))
 
 
 # -- Project information -----------------------------------------------------
 
 project = 'DefichainPython'
-copyright = '2022, Intr0c'
+copyright = '2023, Intr0c'
 author = 'Intr0c'
 
 # The full version, including alpha/beta/rc tags
-release = 'v1.1.0'
+release = 'v3.0.0b0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -46,6 +46,9 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# Autodoc member order
+autodoc_member_order = "bysource"
+
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -63,5 +66,6 @@ language = "en"
 
 html_static_path = ["_static"]
 html_theme_options = {
-    "announcement": "This Documentation page is still in development!",
+    "announcement": "",
 }
+html_favicon = 'logo/logo.png'

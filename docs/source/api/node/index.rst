@@ -8,7 +8,7 @@ This is the main page to get information about the control of the node.
 The most important class is the :ref:`Node Node` class: it takes care of the actual
 connection to the node and performs the requests made by methods.
 
-The simplest setup of the class can be seen on the :ref:`instruction quickstart` page.
+The simplest setup of the class can be seen on the :ref:`Quickstart <instruction quickstart node>` page.
 It offers other possibilities, such as automatically importing and using a
 wallet or decrypting a password-protected wallet.
 
@@ -19,14 +19,13 @@ module and the compositeswap method belongs to the poolpair module.
 
 You can find more explanations :ref:`below <Node requestStructure>`
 
+.. admonition:: New Logger available
+    :class: caution
+
+    If you want to log all requests and results, you can use the new :ref:`Logger` Class.
+
 Node Modules
 ------------
-
-.. admonition:: Documentation of modules
-    :class: important
-
-    I will keep documenting more methods. :ref:`Here<instruction progressAndUpdates>`
-    you can follow the progress.
 
 .. toctree::
 
@@ -41,8 +40,10 @@ Node Modules
     network
     oracles
     poolpair
+    proposals
     rawtransactions
     spv
+    stats
     tokens
     util
     vault
@@ -90,6 +91,16 @@ Amount in amount@token format.
 
     ["1@DFI", "1@BTC", "1@ETH"]  # multiple amounts
 
+There is also a class for the creation of amounts, to make it evan easier:
+
+BuildAmounts
+____________
+
+.. automodule:: defichain.node
+
+.. autoclass:: BuildAmounts
+    :members:
+
 .. _Node Address Amount:
 
 Address Amount
@@ -110,6 +121,14 @@ Example:
         "dcTKz5SQrqf4vGVsgra76ptXeNBcxPrenP": "1@DFI",
         "df1qzkf582h0sgfksj0yn0wxz0r9amyqfferm5wycs": ["2.0@BTC", "3.0@ETH"]
     }
+
+There is also a class for the creation of address amounts, to make it evan easier:
+
+BuildAddressAmounts
+___________________
+
+.. autoclass:: BuildAddressAmounts
+    :members:
 
 .. _Node Inputs:
 

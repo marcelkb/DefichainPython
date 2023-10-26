@@ -2,6 +2,8 @@ from ..util import BuildJson
 
 
 class Accounts:
+    EVM = 2
+    DVM = 3
     def __init__(self, node):
         self._node = node
 
@@ -18,11 +20,11 @@ class Accounts:
         :type token: str
         :param txtype: (optional) Filter by transaction type, supported letter from {CustomTxType}
         :type txtype: str
-        :return: count (int) Count of account history
+        :return: int -- Count of account history
 
         :example:
 
-        >>> node.accounts.accounthistorycount("all", True)
+            //>>> node.accounts.accounthistorycount("all", True)
         """
         j = BuildJson()
         j.append("no_rewards", no_rewards)
@@ -41,11 +43,11 @@ class Accounts:
         :type to: json object
         :param inputs: (optional) :ref:`Node Inputs`
         :type inputs: json array
-        :return: "hash" (string) The hex-encoded hash of broadcasted transaction
+        :return: "hash" (string) -- The hex-encoded hash of broadcasted transaction
 
         :example:
 
-        >>> node.accounts.accounttoaccount(sender_address, {"address1":"1.0@DFI","address2":["2.0@BTC", "3.0@ETH"]}, [])
+            //>>> node.accounts.accounttoaccount(sender_address, {"address1":"1.0@DFI","address2":["2.0@BTC", "3.0@ETH"]}, [])
         """
         return self._node._rpc.call("accounttoaccount", _from, to, inputs)
 
@@ -60,11 +62,11 @@ class Accounts:
         :type to: json object
         :param inputs: (optional) :ref:`Node Inputs`
         :type inputs: json array
-        :return: "hash" (string) The hex-encoded hash of broadcasted transaction
+        :return: "hash" (string) -- The hex-encoded hash of broadcasted transaction
 
         :example:
 
-            >>> node.accounts.accounttoutxos(sender_address, {"address1":"100@DFI"}, [])
+            //>>> node.accounts.accounttoutxos(sender_address, {"address1":"100@DFI"}, [])
         """
         return self._node._rpc.call("accounttoutxos", _from, to, inputs)
 
@@ -80,11 +82,11 @@ class Accounts:
         :type address: str
         :param inputs: (optional) :ref:`Node Inputs`
         :type inputs: json array
-        :return: "hash" (string) The hex-encoded hash of broadcasted transaction
+        :return: "hash" (string) -- The hex-encoded hash of broadcasted transaction
 
         :example:
 
-            >>> node.accounts.executesmartcontract("dbtcdfiswap", "1000@DFI")
+            //>>> node.accounts.executesmartcontract("dbtcdfiswap", "1000@DFI")
         """
         return self._node._rpc.call("executesmartcontract", name, amount, address, inputs)
 
@@ -100,12 +102,12 @@ class Accounts:
         :type destination: str
         :param inputs: (optional) :ref:`Node Inputs`
         :type inputs: json array
-        :return: "hash" (string) The hex-encoded hash of broadcasted transaction
+        :return: "hash" (string) -- The hex-encoded hash of broadcasted transaction
 
         :example:
 
-            >>> node.accounts.futureswap(address, "1@TSLA")
-            >>> node.accounts.futureswap(address, "1000@DUSD", "TSLA")
+           //>>> node.accounts.futureswap(address, "1@TSLA")
+           //>>> node.accounts.futureswap(address, "1000@DUSD", "TSLA")
         """
         return self._node._rpc.call("futureswap", address, amount, destination, inputs)
 
@@ -124,11 +126,11 @@ class Accounts:
         :type limit: int
         :param indexed_amounts: (optional) Format of amounts output (default = false): (true: obj = {tokenid:amount,...}, false: array = ["amount@tokenid"...])
         :type indexed_amounts: bool
-        :return: [{...}] (array) Json object with order information
+        :return: [{...}] (json array) -- object with order information
 
         :example:
 
-            >>> node.accounts.getaccount("mxxA2sQMETJFbXcNbNbUzEsBCTn1JSHXST")
+            //>>> node.accounts.getaccount("mxxA2sQMETJFbXcNbNbUzEsBCTn1JSHXST")
         """
         pagination = BuildJson()
         pagination.append("start", start)
@@ -147,11 +149,11 @@ class Accounts:
         :type blockheight: int
         :param txn: (required) for order in block.
         :type txn: int
-        :return: {}  An object with account history information
+        :return: {...} (json) -- An object with account history information
 
         :example:
 
-            >>> node.accounts.getaccounthistory("mxxA2sQMETJFbXcNbNbUzEsBCTn1JSHXST", 103, 2)
+            //>>> node.accounts.getaccounthistory("mxxA2sQMETJFbXcNbNbUzEsBCTn1JSHXST", 103, 2)
         """
         return self._node._rpc.call("getaccounthistory", owner, blockheight, txn)
 
@@ -160,7 +162,7 @@ class Accounts:
         Returns burn address and burnt coin and token information.
         Requires full acindex for correct amount, tokens and feeburn values.
 
-        :return:
+        :return: {...} (json) -- information about burned coins
 
             .. code-block:: text
 
@@ -179,7 +181,7 @@ class Accounts:
 
         :example:
 
-            >>> node.accounts.getaccount()
+            //>>> node.accounts.getaccount()
         """
         return self._node._rpc.call("getburninfo")
 
@@ -189,7 +191,7 @@ class Accounts:
 
         :param address: (required) Address to get all pending future swaps
         :type address: str
-        :return:
+        :return: {...} (json) -- returns pending DUSD - DFI Swaps
 
             .. code-block:: text
 
@@ -200,7 +202,7 @@ class Accounts:
 
         :example:
 
-            >>> node.accounts.getpendingdusdswaps(address)
+            //>>> node.accounts.getpendingdusdswaps(address)
         """
         return self._node._rpc.call("getpendingdusdswaps", address)
 
@@ -210,7 +212,7 @@ class Accounts:
 
         :param address: (required) Address to get all pending future swaps
         :type address: str
-        :return:
+        :return: {...} (json) -- returns pending future swaps
 
             .. code-block:: text
 
@@ -225,16 +227,16 @@ class Accounts:
 
         :example:
 
-            >>> node.accounts.getpendingfutureswaps(address)
+            //>>> node.accounts.getpendingfutureswaps(address)
         """
         return self._node._rpc.call("getpendingfutureswaps", address)
 
     def gettokenbalances(self, start: str = None, including_start: bool = None, limit: int = None,
-                         indexed_amounts: bool = False, symbol_lookup: bool = False) -> {}:  # 11
+                         indexed_amounts: bool = False, symbol_lookup: bool = False, evm: bool = None) -> []:  # 11
         """
         Returns the balances of all accounts that belong to the wallet.
 
-        :param start: (optional) Optional first key to iterate from, in lexicographical order.Typically it's set to last tokenID from previous request.
+        :param start: (optional) Optional first key to iterate from, in lexicographical order. Typically it's set to last tokenID from previous request.
         :type start: str
         :param including_start: (optional) If true, then iterate including starting position. False by default
         :type including_start: bool
@@ -244,22 +246,25 @@ class Accounts:
         :type indexed_amounts: bool
         :param symbol_lookup: (optional) Use token symbols in output (default = false)
         :type symbol_lookup: bool
-        :return: {...} array) Json object with balances information
+        :param evm: (optional) Include DFI balances in the EVM layer (default = false): Note: This does not include DST20 tokens
+        :type evm: bool
+        :return: [...] (json array) -- object with balances information
 
         :example:
 
-            >>> node.accounts.gettokenbalances()
+            //>>> node.accounts.gettokenbalances()
         """
         pagination = BuildJson()
         pagination.append("start", start)
         pagination.append("including_start", including_start)
         pagination.append("limit", limit)
 
-        return self._node._rpc.call("gettokenbalances", pagination.build(), indexed_amounts, symbol_lookup)
+        return self._node._rpc.call("gettokenbalances", pagination.build(), indexed_amounts, symbol_lookup, evm)
 
     def listaccounthistory(self, owner: str, maxBlockHeight: int = None, depth: int = None, no_rewards: bool = None,
-                           token: str = None, txtype: str = None, limit: int = None, txn: int = None,
-                           format: str = None) -> [{}]:  # 12
+                           token: str = None, txtype: str = None, txtypes: [] = None, limit: int = None,
+                           start: int = None, including_start: bool = None, txn: int = None, format: str = None) -> [
+        {}]:  # 12
         """
         Returns information about account history.
 
@@ -277,15 +282,21 @@ class Accounts:
         :type txtype: str
         :param limit: (optional) Maximum number of records to return, 100 by default
         :type limit: int
+        :param txtypes: (optional) Filter multiple transaction types, supported letter from {CustomTxType}
+        :type txtypes: json array
+        :param start: (optional) Number of entries to skip
+        :type start: int
+        :param including_start: (optional) If true, then iterate including starting position. False by default
+        :type including_start: int
         :param txn: (optional) Order in block, unlimited by default
         :type txn: int
         :param format: (optional) Return amounts with the following: 'id' -> <amount>@id; (default)'symbol' -> <amount>@symbol
         :type format: str
-        :return: [{},{}...] (array) Objects with account history information
+        :return: [{},{}, ...] (json array) -- Objects with account history information
 
         :example:
 
-            >>> node.accounts.listaccounthistory("all", 160, 10)
+            //>>> node.accounts.listaccounthistory("all", 160, 10)
         """
         options = BuildJson()
         options.append("maxBlockHeight", maxBlockHeight)
@@ -293,7 +304,10 @@ class Accounts:
         options.append("no_rewards", no_rewards)
         options.append("token", token)
         options.append("txtype", txtype)
+        options.append("txtypes", txtypes)
         options.append("limit", limit)
+        options.append("start", start)
+        options.append("including_start", including_start)
         options.append("txn", txn)
         options.append("format", format)
 
@@ -316,11 +330,11 @@ class Accounts:
         :type indexed_amounts: bool
         :param is_mine_only: (optional) Get balances about all accounts belonging to the wallet
         :type is_mine_only: bool
-        :return: {id:{...},...} (array) Json object with accounts information
+        :return: {id:{...},...} (json) -- Json object with accounts information
 
         :example:
 
-            >>> node.accounts.listaccounts()
+            //>>> node.accounts.listaccounts()
         """
         pagnation = BuildJson()
         pagnation.append("start", start)
@@ -344,11 +358,11 @@ class Accounts:
         :type txtype: str
         :param limit: (optional) Maximum number of records to return, 100 by default
         :type limit: int
-        :return: [{},{}...] (array) Objects with burn history information
+        :return: [{},{}, ...] (json array) -- objects with burn history information
 
         :example:
 
-            >>> node.accounts.listburnhistory(160, 10)
+            //>>> node.accounts.listburnhistory(160, 10)
         """
         options = BuildJson()
         options.append("maxBlockHeight", maxBlockHeight)
@@ -363,11 +377,11 @@ class Accounts:
         """
         Returns information about all community balances.
 
-        :return: {balance_type:value,...} (array) Json object with accounts information
+        :return: {balance_type:value,...} (json) -- Json object with accounts information
 
         :example:
 
-            >>> node.accounts.listcommunitybalances()
+            //>>> node.accounts.listcommunitybalances()
         """
         return self._node._rpc.call("listcommunitybalances")
 
@@ -375,18 +389,18 @@ class Accounts:
         """
         Get all pending DFI-to_DUSD swaps.
 
-        :return: "json" (string) array containing json-objects having following fields:
+        :return: [{...}] (json array) -- array containing json-objects having following fields
 
-            .. code-block:: text
+        .. code-block:: text
 
-                {
-                    owner : "address"
-                    amount :      n.nnnnnnnn
-                }
+            {
+                owner : "address"
+                amount :      n.nnnnnnnn
+            }
 
         :example:
 
-            >>> node.accounts.listpendingdusdswaps()
+            //>>> node.accounts.listpendingdusdswaps()
 
         """
         return self._node._rpc.call("listpendingdusdswaps")
@@ -395,22 +409,22 @@ class Accounts:
         """
         Get all pending futures.
 
-        :return: "json" (string) array containing json-objects having following fields:
+        :return: [{...}] (json array) -- array containing json-objects having following fields:
 
-            .. code-block:: text
+        .. code-block:: text
 
-                {
-                    owner : "address"
-                    values : [{
-                        tokenSymbol : "SYMBOL"
-                        amount : n.nnnnnnnn
-                        destination : "SYMBOL"
-                    }...]
-                }
+            {
+                owner : "address"
+                values : [{
+                    tokenSymbol : "SYMBOL"
+                    amount : n.nnnnnnnn
+                    destination : "SYMBOL"
+                }...]
+            }
 
         :example:
 
-            >>> node.accounts.listpendingfutureswaps()
+            //>>> node.accounts.listpendingfutureswaps()
         """
         return self._node._rpc.call("listpendingfutureswaps")
 
@@ -428,11 +442,11 @@ class Accounts:
                             "crumbs" - Selecting accounts by ascending of sum token amounts. It means that we will select first accounts with minimal sum of neccessary token amounts.
                             "pie" - Selecting accounts by descending of sum token amounts. It means that we will select first accounts with maximal sum of neccessary token amounts.
         :type selectionMode: str
-        :return: "hash" (string) The hex-encoded hash of broadcasted transaction
+        :return: "hash" (string) -- The hex-encoded hash of broadcasted transaction
 
         :example:
 
-            >>> node.accounts.sendtokenstoaddress({"srcAddress1":"2.0@DFI", "srcAddress2":["3.0@DFI", "2.0@ETH"]}, {"dstAddress1":["5.0@DFI", "2.0@ETH"]})
+            //>>> node.accounts.sendtokenstoaddress({"srcAddress1":"2.0@DFI", "srcAddress2":["3.0@DFI", "2.0@ETH"]}, {"dstAddress1":["5.0@DFI", "2.0@ETH"]})
         """
         return self._node._rpc.call("sendtokenstoaddress", _from, to, selectionMode)
 
@@ -448,11 +462,11 @@ class Accounts:
         :type amount: int
         :param change: (optional) The address to send change to (Default: from address)
         :type change: str
-        :return: "hash" (string) The hex-encoded hash of broadcasted transaction
+        :return: "hash" (string) -- The hex-encoded hash of broadcasted transaction
 
         :example:
 
-            >>> node.accounts.sendutxosfrom(from_address, to_address, 100)
+            //>>> node.accounts.sendutxosfrom(from_address, to_address, 100)
         """
         change = _from if change is None else change
         return self._node._rpc.call("sendutxosfrom", _from, to, amount, change)
@@ -466,11 +480,11 @@ class Accounts:
         :type amounts: json object
         :param inputs: (optional) :ref:`Node Inputs`
         :type inputs: json array
-        :return: "hash" (string) The hex-encoded hash of broadcasted transaction
+        :return: "hash" (string) -- The hex-encoded hash of broadcasted transaction
 
         :example:
 
-            >>> node.accounts.utxostoaccount({"address1":"1.0@DFI"})
+            //>>> node.accounts.utxostoaccount({"address1":"1.0@DFI"})
         """
         return self._node._rpc.call("utxostoaccount", amounts, inputs)
 
@@ -487,11 +501,65 @@ class Accounts:
         :type destination: str
         :param inputs: (optional) :ref:`Node Inputs`
         :type inputs: json array
-        :return: "hash" (string) The hex-encoded hash of broadcasted transaction
+        :return: "hash" (string) -- The hex-encoded hash of broadcasted transaction
 
         :example:
 
-            >>> node.accounts.withdrawfutureswap(address, "1@TSLA")
-            >>> node.accounts.withdrawfutureswap(address, "1000@DUSD", "TSLA")
+            //>>> node.accounts.withdrawfutureswap(address, "1@TSLA")
+            //>>> node.accounts.withdrawfutureswap(address, "1000@DUSD", "TSLA")
         """
         return self._node._rpc.call("withdrawfutureswap", address, amount, destination, inputs)
+
+
+    def transferdomain(self, addressDvm, addressEvm, amount, fromDomain, toDomain):
+        """
+        Creates (and submits to local node and network) a tx to transfer assets across domains. DVM to EVM/EVM to DVM, etc."
+        :param addressDvm: Adress on DVM
+        :param addressEvm: Adress on EVM
+        :param amount: Amount transfered, the value is amount in amount@token format
+        :param fromDomain: Domain of source: 2 - DVM, 3 - EVM
+        :param toDomain: Domain of target: 2 - DVM, 3 - EVM
+
+        CLI Params:
+            address
+            amount
+            domain 2 - DVM, 3 - EVM accounts.DVM or accounts.EVM
+            data: Optional data
+            '[{"src":{"address":"<DFI_address>", "amount":"1.0@DFI", "domain": 2}, "dst":{"address":"<ETH_address>", "amount":"1.0@DFI", "domain": 3}}]')
+        :return:
+        """
+        jsonArray = BuildJson()
+
+        if (toDomain == "EVM" or toDomain == self.EVM) and (fromDomain == "DVM" or fromDomain == self.DVM):
+            # src dst
+            jsonInnerSrc = BuildJson()
+            jsonInnerSrc.append("address", addressDvm)
+            jsonInnerSrc.append("amount", amount)
+            jsonInnerSrc.append("domain", 2)
+
+            jsonInnerDst = BuildJson()
+            jsonInnerDst.append("address", addressEvm)
+            jsonInnerDst.append("amount", amount)
+            jsonInnerDst.append("domain", 3)
+
+            jsonArray.appendJson(jsonInnerSrc)
+            jsonArray.appendJson(jsonInnerDst)
+
+        elif (toDomain == "DVM" or toDomain == self.DVM) and (fromDomain == "EVM" or fromDomain == self.EVM):
+            # dst scr
+            jsonArray = BuildJson()
+            jsonInnerSrc = BuildJson()
+            jsonInnerSrc.append("address", addressEvm)
+            jsonInnerSrc.append("amount", amount)
+            jsonInnerSrc.append("domain", 3)
+
+            jsonInnerDst = BuildJson()
+            jsonInnerDst.append("address", addressDvm)
+            jsonInnerDst.append("amount", amount)
+            jsonInnerDst.append("domain", 2)
+
+            jsonArray.appendJson(jsonInnerSrc)
+            jsonArray.appendJson(jsonInnerDst)
+
+
+        return self._node._rpc.call("transferdomain", jsonArray)

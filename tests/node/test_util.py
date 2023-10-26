@@ -1,10 +1,9 @@
 import pytest
-from tests.util import createNode
 
 # Import Exceptions
-from defichain.exceptions.InternalServerError import InternalServerError
+from defichain.exceptions.http.InternalServerError import InternalServerError
 
-node = createNode()
+from . import node
 
 
 @pytest.mark.query
@@ -28,6 +27,7 @@ def test_deriveaddresses():  # 02
     with pytest.raises(InternalServerError, match=string):
         assert node.util.deriveaddresses(f"pkh({pubkey})#{checksum}", [0, 10])
         assert node.util.deriveaddresses(descriptor=f"pkh({pubkey})#{checksum}", range=[0, 10])
+
 
 @pytest.mark.query
 def test_estimatesmartfee():  # 03
@@ -57,7 +57,6 @@ def test_validateaddress():  # 06
     assert node.util.validateaddress(address=address)
 
 
-
 @pytest.mark.query
 def test_verifymessage():  # 07
     """
@@ -68,4 +67,3 @@ def test_verifymessage():  # 07
     assert node.util.verifymessage(address=address, signature=signature, message=msg)
     """
     assert True  # Not working on Node
-

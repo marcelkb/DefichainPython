@@ -5,8 +5,8 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Generating" href="generating.html" /><link rel="prev" title="Blockchain" href="blockchain.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>Control - DefichainPython v1.1.0</title>
+    <link rel="shortcut icon" href="../../_static/logo.png"/><meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+        <title>Control - DefichainPython v3.0.0b0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -113,11 +113,7 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-<div class="announcement">
-  <aside class="announcement-content">
-     This Documentation page is still in development! 
-  </aside>
-</div>
+
 
 <div class="page">
   <header class="mobile-header">
@@ -128,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">DefichainPython v1.1.0</div></a>
+      <a href="../../index.html"><div class="brand">DefichainPython v3.0.0b0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">DefichainPython v1.1.0</span>
+  <span class="sidebar-brand-text">DefichainPython v3.0.0b0</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -164,9 +160,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/progressAndUpdates.html">Progress and Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/rawMethodsOverview.html">Raw Methods Overview</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../additionalInfos/index.html">Additional Information</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../additionalInfos/installDefichainNode.html">Install Defichain Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../additionalInfos/mnemonicSeedForWallet.html">How to use mnemonic seed phrase for your wallet.dat file</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../additional/index.html">Additional Information</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../additional/basicUsageOfRawTransactions.html">Basic Usage Of Transactions Builder</a></li>
 </ul>
 </li>
 </ul>
@@ -184,8 +179,10 @@
 <li class="toctree-l2"><a class="reference internal" href="network.html">Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oracles.html">Oracles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="poolpair.html">Poolpair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposals.html">Proposals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rawtransactions.html">Rawtransactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spv.html">Spv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html">Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tokens.html">Tokens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="util.html">Util</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vault.html">Vault</a></li>
@@ -210,6 +207,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../ocean/transactions.html">Transactions</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../hdwallet/index.html">HDWallet</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hdwallet/wallet.html">Wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hdwallet/utils.html">Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../transactions/index.html">Transactions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transactions/builder/index.html">Transaction Builder</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transactions/builder/txbuilder.html">TxBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transactions/builder/accounts.html">Accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transactions/builder/pool.html">Pool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transactions/builder/utxo.html">UTXO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../logger.html">Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mnemonic.html">Mnemonic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Legal</span></p>
@@ -253,7 +267,175 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="defichain.node.Control">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">defichain.node.</span></span><span class="sig-name descname"><span class="pre">Control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#defichain.node.Control" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="defichain.node.Control.getmemoryinfo">
+<span class="sig-name descname"><span class="pre">getmemoryinfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'stats'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">{}</span></span></span><a class="headerlink" href="#defichain.node.Control.getmemoryinfo" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an object containing information about memory usage.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>str</em>) – <p>(optional) determines what kind of information is returned.</p>
+<ol class="arabic simple">
+<li><p>”stats” returns general statistics about memory usage in the daemon.</p></li>
+<li><p>”mallocinfo” returns an XML string describing low-level heap state (only available if compiled with glibc 2.10+).</p></li>
+</ol>
+</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>{…} (json) if mode == “stats” | malloc if mode == “mallocinfo”</p>
+<p><strong>Result (mode “stats”):</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{
+    "locked": {               (json object) Information about locked memory manager
+    "used": xxxxx,          (numeric) Number of bytes used
+    "free": xxxxx,          (numeric) Number of bytes available in current arenas
+    "total": xxxxxxx,       (numeric) Total number of bytes managed
+    "locked": xxxxxx,       (numeric) Amount of bytes that succeeded locking. If this number is smaller than total, locking pages failed at some point and key data could be swapped to disk.
+    "chunks_used": xxxxx,   (numeric) Number allocated chunks
+    "chunks_free": xxxxx,   (numeric) Number unused chunks
+    }
+}
+</pre></div>
+</div>
+<p><strong>Result (mode “mallocinfo”):</strong></p>
+<p>”&lt;malloc version=”1”&gt;…”</p>
+</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">node</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">getmemoryinfo</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="defichain.node.Control.getrpcinfo">
+<span class="sig-name descname"><span class="pre">getrpcinfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">{}</span></span></span><a class="headerlink" href="#defichain.node.Control.getrpcinfo" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns details of the RPC server.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>{…} (json) – returns rpc info</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{
+    "active_commands" (array) All active commands
+    [
+        {               (object) Information about an active command
+        "method"       (string)  The name of the RPC command
+        "duration"     (numeric)  The running time in microseconds
+        },...
+    ],
+    "logpath": "xxx" (string) The complete file path to the debug log
+}
+</pre></div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">node</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">getrpcinfo</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="defichain.node.Control.help">
+<span class="sig-name descname"><span class="pre">help</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#defichain.node.Control.help" title="Permalink to this definition">#</a></dt>
+<dd><p>List all commands, or get help for a specified command.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>command</strong> (<em>str</em>) – (optinal) The command to get help on</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>“text” (string) The help text</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">node</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">help</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">node</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">help</span><span class="p">(</span><span class="s2">"getblockcount"</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="defichain.node.Control.logging">
+<span class="sig-name descname"><span class="pre">logging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">{}</span></span></span><a class="headerlink" href="#defichain.node.Control.logging" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets and sets the logging configuration.
+When called without an argument, returns the list of categories with status that are currently being debug logged or not.
+When called with arguments, adds or removes categories from debug logging and return the lists above.
+The arguments are evaluated in order “include”, “exclude”.
+If an item is both included and excluded, it will thus end up being excluded.
+The valid logging categories are: accountchange, addrman, anchoring, bench, cmpctblock, coindb, db, estimatefee, futureswap, http, leveldb, libevent, loan, mempool, mempoolrej, net, oracle, proxy, prune, rand, reindex, rpc, rpccache, selectcoins, spv, staking, tokensplit, tor, zmq
+In addition, the following are available as category names with special meanings:</p>
+<ul class="simple">
+<li><p>“all”,  “1” : represent all logging categories.</p></li>
+<li><p>“none”, “0” : even if other logging categories are specified, ignore all of them.</p></li>
+</ul>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>include</strong> (<em>[</em><em>]</em>) – <p>(optinal) A json array of categories to add debug logging</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[
+    "include_category",    (string) the valid logging category
+    ...
+]
+</pre></div>
+</div>
+</p></li>
+<li><p><strong>exclude</strong> (<em>[</em><em>]</em>) – <p>(optinal) A json array of categories to remove debug logging</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[
+    "exclude_category",    (string) the valid logging category
+    ...
+]
+</pre></div>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>{…} (json) – object where keys are the logging categories, and values indicates its status</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{
+    "category": true|false,  (bool) if being debug logged or not. false:inactive, true:active
+    ...
+}
+</pre></div>
+</div>
+</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">node</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">logging</span><span class="p">([</span><span class="s2">"all"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"http"</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="defichain.node.Control.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#defichain.node.Control.stop" title="Permalink to this definition">#</a></dt>
+<dd><p>Stop Defi server.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">node</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="defichain.node.Control.uptime">
+<span class="sig-name descname"><span class="pre">uptime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#defichain.node.Control.uptime" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the total uptime of the server.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>ttt (numeric) – The number of seconds that the server has been running</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">node</span><span class="o">.</span><span class="n">control</span><span class="o">.</span><span class="n">uptime</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
 </section>
 
         </article>
@@ -285,7 +467,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Intr0c
+                Copyright &#169; 2023, Intr0c
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             

@@ -1,11 +1,12 @@
 import pytest
-from tests.util import createNode, load_secrets_conf, LENGTH_OF_TXID
+import time
+from tests.util import load_secrets_conf, LENGTH_OF_TXID
 
 # Import Exceptions
-from defichain.exceptions.InternalServerError import InternalServerError
-from defichain.exceptions.BadRequest import BadRequest
+from defichain.exceptions.http.InternalServerError import InternalServerError
+from defichain.exceptions.http.BadRequest import BadRequest
 
-node = createNode()
+from . import node
 address = load_secrets_conf()["wallet_address"]
 vault = load_secrets_conf()["vault_address"]
 
@@ -36,6 +37,9 @@ def test_createvault():  # 02
 
 @pytest.mark.transactions
 def test_deposittovault():  # 03
+    while len(node.wallet.listunspent()) < 1:
+        time.sleep(1)
+
     assert len(node.vault.deposittovault(vault, address, "0.00000001@DUSD")) == LENGTH_OF_TXID
     assert len(node.vault.deposittovault(vault, address, "0.00000001@DUSD", [])) == LENGTH_OF_TXID
     assert len(node.vault.deposittovault(vault, address, "0.00000001@DUSD", [])) == LENGTH_OF_TXID
@@ -76,7 +80,7 @@ def test_listauctionhistory():  # 08
                                          0, 100) == []
     assert node.vault.listauctionhistory(identifier="all", maxBlockHeight=node.blockchain.getblockcount(),
                                          vaultId="63a41dbc6497a58f024b730ca27189cdd2da45a5f9adda78c02581de36345e18",
-                                         index=0, limit=100)
+                                         index=0, limit=100) == []
 
 
 @pytest.mark.query
@@ -109,9 +113,13 @@ def test_listvaults():  # 11
     assert node.vault.listvaults(ownerAddress=address, loanSchemeId="MIN150", state="active", verbose=False,
                                  start=vault, including_start=True, limit=100)
 
+@pytest.mark.query
+def test_paybackwithcollateral():  # 12
+    pass  # has to be implemented (tested manually)
+
 
 @pytest.mark.query
-def test_placeauctionbid():  # 12
+def test_placeauctionbid():  # 13
     string = ".* RPC_TYPE_ERROR: amount: Invalid amount"
     with pytest.raises(InternalServerError, match=string):
         assert node.vault.placeauctionbid(vault, 0, address, "0.01DUSD")
@@ -122,7 +130,10 @@ def test_placeauctionbid():  # 12
 
 
 @pytest.mark.transactions
-def test_updatevault():  # 13
+def test_updatevault():  # 14
+    while len(node.wallet.listunspent()) < 1:
+        time.sleep(1)
+
     assert len(node.vault.updatevault(vault, address)) == LENGTH_OF_TXID
     assert len(node.vault.updatevault(vault, None, "MIN150")) == LENGTH_OF_TXID
     assert len(node.vault.updatevault(vault, address, None, [])) == LENGTH_OF_TXID
@@ -132,7 +143,10 @@ def test_updatevault():  # 13
 
 
 @pytest.mark.transactions
-def test_withdrawfromvault():  # 14
+def test_withdrawfromvault():  # 15
+    while len(node.wallet.listunspent()) < 1:
+        time.sleep(1)
+
     assert len(node.vault.withdrawfromvault(vault, address, "0.00000001@DUSD")) == LENGTH_OF_TXID
     assert len(node.vault.withdrawfromvault(vault, address, "0.00000001@DUSD", [])) == LENGTH_OF_TXID
     assert len(node.vault.withdrawfromvault(vaultId=vault, to=address, amount="0.00000001@DUSD", inputs=[])) == \

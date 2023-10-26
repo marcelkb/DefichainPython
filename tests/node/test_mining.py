@@ -1,10 +1,9 @@
 import pytest
-from tests.util import createNode
 
 # Import Exceptions
-from defichain.exceptions.BadRequest import BadRequest
+from defichain.exceptions.http.BadRequest import BadRequest
 
-node = createNode()
+from . import node
 
 
 @pytest.mark.query

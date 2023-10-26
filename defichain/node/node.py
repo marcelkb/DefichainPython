@@ -1,5 +1,7 @@
-from defichain.exceptions.ServiceUnavailable import ServiceUnavailable
-from defichain.exceptions.WrongParmeters import WrongParameters
+from defichain.logger import Logger
+from defichain.exceptions.http.ServiceUnavailable import ServiceUnavailable
+from defichain.exceptions.http.WrongParmeters import WrongParameters
+from .modules.evm import Evm
 
 from .rpc import RPC
 
@@ -13,6 +15,7 @@ from .modules.mining import Mining
 from .modules.network import Network
 from .modules.oracles import Oracles
 from .modules.poolpair import Poolpair
+from .modules.proposals import Proposals
 from .modules.rawtransactions import Rawtransactions
 from .modules.spv import Spv
 from .modules.stats import Stats
@@ -52,6 +55,8 @@ class Node:
     :type wallet_timeout: int
     :param protocol: (optional) the protocol which is used for the request (default=http)
     :type protocol: str
+    :param logger: (optional) Logger Object
+    :type logger: :ref:`Logger`
     :return: Node (object) The object to interact with your Defichain Node
 
     :example:
@@ -64,7 +69,8 @@ class Node:
 
     def __init__(self, user: str, password: str, url: str = "127.0.0.1", port: int = 8554, wallet_name: str = "",
                  wallet_path: str = None, wallet_password: str = "", wallet_timeout: int = 60,
-                 protocol: str = "http") -> "Node":
+                 protocol: str = "http", logger: Logger = None):
+
         # Parameter Check
         if wallet_name != "" and wallet_path is not None:
             raise WrongParameters(f"Only one parameter of wallet_name or wallet_path may be given at a time!")
@@ -78,7 +84,8 @@ class Node:
             self.url = f"{protocol}://{user}:{password}@{url}:{port}{wallet_path}"
 
         # Setup all different modules
-        self._rpc = RPC(self.url)
+        self._rpc = RPC(self.url, logger)
+        self._logger = logger
         self.accounts = Accounts(self)
         self.blockchain = Blockchain(self)
         self.control = Control(self)
@@ -90,6 +97,7 @@ class Node:
         self.network = Network(self)
         self.oracles = Oracles(self)
         self.poolpair = Poolpair(self)
+        self.proposals = Proposals(self)
         self.rawtransactions = Rawtransactions(self)
         self.spv = Spv(self)
         self.stats = Stats(self)
@@ -98,9 +106,24 @@ class Node:
         self.vault = Vault(self)
         self.wallet = Wallet(self)
         self.zmq = Zmq(self)
+        self.evm = Evm(self)
 
         # Test Connection to Node
         self.test_connection()
+
+        # Check if only one wallet
+        wallets = self.wallet.listwallets()
+        if len(wallets) == 1:  # Only one wallet is loaded
+            url = f"{protocol}://{user}:{password}@{url}:{port}/wallet/{wallets[0]}"
+            self._rpc.update_url(url)
+        # If more than one wallet is loaded the default wallet "" will be used. If you want tu use a specific wallet you
+        # have zu specify the wallet in the wallet_name parameter
+        elif len(wallets) > 1 and not "" in wallets:
+            msg = "Warning: You have not specified an wallet in the wallet_name parameter. If you use an method where " \
+                  "an wallet is needed an error will accrue!"
+            print(msg)
+            if logger:
+                logger.error("NodeWarning", msg)
 
         # Prepare Wallet
         if wallet_path is not None and wallet_path != "":
@@ -140,7 +163,9 @@ class Node:
         try:
             self.network.ping()
         except ServiceUnavailable as e:
-            raise ServiceUnavailable(f"RPC_CLIENT_INVALID_IP_OR_SUBNET: Invalid IP/Subnet {e}")
+            if self._logger:
+                self._logger.error("ConnectionError", f"RPC_CLIENT_INVALID_IP_OR_SUBNET: Invalid IP/Subnet")
+            raise ServiceUnavailable(f"RPC_CLIENT_INVALID_IP_OR_SUBNET: Invalid IP/Subnet")
 
         except Exception as e:
             raise Exception(e)

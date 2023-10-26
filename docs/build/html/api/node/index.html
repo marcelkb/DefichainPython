@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Node" href="node.html" /><link rel="prev" title="How to use mnemonic seed phrase for your wallet.dat file" href="../../additionalInfos/mnemonicSeedForWallet.html" />
+<link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Node" href="node.html" /><link rel="prev" title="Basic Usage Of Transactions Builder" href="../../additional/basicUsageOfRawTransactions.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>Node / RPC - DefichainPython v1.1.0</title>
+    <link rel="shortcut icon" href="../../_static/logo.png"/><meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+        <title>Node / RPC - DefichainPython v3.0.0b0</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -113,11 +113,7 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-<div class="announcement">
-  <aside class="announcement-content">
-     This Documentation page is still in development! 
-  </aside>
-</div>
+
 
 <div class="page">
   <header class="mobile-header">
@@ -128,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../index.html"><div class="brand">DefichainPython v1.1.0</div></a>
+      <a href="../../index.html"><div class="brand">DefichainPython v3.0.0b0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -151,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
   
   
-  <span class="sidebar-brand-text">DefichainPython v1.1.0</span>
+  <span class="sidebar-brand-text">DefichainPython v3.0.0b0</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -164,9 +160,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/progressAndUpdates.html">Progress and Updates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../instructions/rawMethodsOverview.html">Raw Methods Overview</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../additionalInfos/index.html">Additional Information</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../additionalInfos/installDefichainNode.html">Install Defichain Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../additionalInfos/mnemonicSeedForWallet.html">How to use mnemonic seed phrase for your wallet.dat file</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../additional/index.html">Additional Information</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../additional/basicUsageOfRawTransactions.html">Basic Usage Of Transactions Builder</a></li>
 </ul>
 </li>
 </ul>
@@ -184,8 +179,10 @@
 <li class="toctree-l2"><a class="reference internal" href="network.html">Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="oracles.html">Oracles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="poolpair.html">Poolpair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposals.html">Proposals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rawtransactions.html">Rawtransactions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spv.html">Spv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html">Stats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tokens.html">Tokens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="util.html">Util</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vault.html">Vault</a></li>
@@ -210,6 +207,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../ocean/transactions.html">Transactions</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../hdwallet/index.html">HDWallet</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hdwallet/wallet.html">Wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hdwallet/utils.html">Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../transactions/index.html">Transactions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../transactions/builder/index.html">Transaction Builder</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../transactions/builder/txbuilder.html">TxBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transactions/builder/accounts.html">Accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transactions/builder/pool.html">Pool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../transactions/builder/utxo.html">UTXO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../logger.html">Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mnemonic.html">Mnemonic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Legal</span></p>
@@ -253,7 +267,7 @@
 <p>This is the main page to get information about the control of the node.</p>
 <p>The most important class is the <a class="reference internal" href="node.html#node-node"><span class="std std-ref">Node</span></a> class: it takes care of the actual
 connection to the node and performs the requests made by methods.</p>
-<p>The simplest setup of the class can be seen on the <a class="reference internal" href="../../instructions/quickstart.html#instruction-quickstart"><span class="std std-ref">Quickstart</span></a> page.
+<p>The simplest setup of the class can be seen on the <a class="reference internal" href="../../instructions/quickstart.html#instruction-quickstart-node"><span class="std std-ref">Quickstart</span></a> page.
 It offers other possibilities, such as automatically importing and using a
 wallet or decrypting a password-protected wallet.</p>
 <p>All individual methods are assigned to specific modules.
@@ -261,13 +275,12 @@ These modules match the ones that are output by the <a class="reference internal
 For example, the getblockcount method belongs to the blockchain
 module and the compositeswap method belongs to the poolpair module.</p>
 <p>You can find more explanations <a class="reference internal" href="#node-requeststructure"><span class="std std-ref">below</span></a></p>
+<div class="caution admonition">
+<p class="admonition-title">New Logger available</p>
+<p>If you want to log all requests and results, you can use the new <a class="reference internal" href="../logger.html#logger"><span class="std std-ref">Logger</span></a> Class.</p>
+</div>
 <section id="node-modules">
 <h2>Node Modules<a class="headerlink" href="#node-modules" title="Permalink to this headline">#</a></h2>
-<div class="important admonition">
-<p class="admonition-title">Documentation of modules</p>
-<p>I will keep documenting more methods. <a class="reference internal" href="../../instructions/progressAndUpdates.html#instruction-progressandupdates"><span class="std std-ref">Here</span></a>
-you can follow the progress.</p>
-</div>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="node.html">Node</a></li>
@@ -281,8 +294,10 @@ you can follow the progress.</p>
 <li class="toctree-l1"><a class="reference internal" href="network.html">Network</a></li>
 <li class="toctree-l1"><a class="reference internal" href="oracles.html">Oracles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poolpair.html">Poolpair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proposals.html">Proposals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rawtransactions.html">Rawtransactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spv.html">Spv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stats.html">Stats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tokens.html">Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="util.html">Util</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vault.html">Vault</a></li>
@@ -322,6 +337,58 @@ in the upper left corner or look in the <a class="reference internal" href="../.
 ["1@DFI", "1@BTC", "1@ETH"]  # multiple amounts
 </pre></div>
 </div>
+<p>There is also a class for the creation of amounts, to make it evan easier:</p>
+<section id="module-defichain.node">
+<span id="buildamounts"></span><h4>BuildAmounts<a class="headerlink" href="#module-defichain.node" title="Permalink to this headline">#</a></h4>
+<dl class="py class">
+<dt class="sig sig-object py" id="defichain.node.BuildAmounts">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">defichain.node.</span></span><span class="sig-name descname"><span class="pre">BuildAmounts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amounts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#defichain.node.BuildAmounts" title="Permalink to this definition">#</a></dt>
+<dd><p>An easy to use class to quickly build amounts.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>amounts</strong> (<em>str</em><em> or </em><em>array str</em>) – import already existing amounts: “<a class="reference external" href="mailto:amount%40token">amount<span>@</span>token</a>” or [”<a class="reference external" href="mailto:amount1%40t1">amount1<span>@</span>t1</a>”, “<a class="reference external" href="mailto:amount2%40t2">amount2<span>@</span>t2</a>”]</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">defichain.node</span> <span class="kn">import</span> <span class="n">BuildAmounts</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">amounts</span> <span class="o">=</span> <span class="n">BuildAmounts</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">amounts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"DFI"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">amounts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"BTC"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">amounts</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="go">['1@DFI', '2@BTC']</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="defichain.node.BuildAmounts.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference internal" href="#defichain.node.BuildAmounts" title="defichain.node.util.BuildAmounts"><span class="pre">defichain.node.util.BuildAmounts</span></a></span></span><a class="headerlink" href="#defichain.node.BuildAmounts.add" title="Permalink to this definition">#</a></dt>
+<dd><p>Add an amount to other amounts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coin</strong> (<em>str</em>) – coin to use</p></li>
+<li><p><strong>amount</strong> (<em>float</em>) – amount of specified coin</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>“BuildAmounts”</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="defichain.node.BuildAmounts.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">{}</span></span></span><a class="headerlink" href="#defichain.node.BuildAmounts.build" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the amount</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns the amount. If it is a single amount, it will return a string. If there are multiple amounts
+it will return a list of strings.</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</section>
 </section>
 <section id="address-amount">
 <span id="node-address-amount"></span><h3>Address Amount<a class="headerlink" href="#address-amount" title="Permalink to this headline">#</a></h3>
@@ -338,6 +405,58 @@ in the upper left corner or look in the <a class="reference internal" href="../.
 }
 </pre></div>
 </div>
+<p>There is also a class for the creation of address amounts, to make it evan easier:</p>
+<section id="buildaddressamounts">
+<h4>BuildAddressAmounts<a class="headerlink" href="#buildaddressamounts" title="Permalink to this headline">#</a></h4>
+<dl class="py class">
+<dt class="sig sig-object py" id="defichain.node.BuildAddressAmounts">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">defichain.node.</span></span><span class="sig-name descname"><span class="pre">BuildAddressAmounts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address_amounts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">{}</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#defichain.node.BuildAddressAmounts" title="Permalink to this definition">#</a></dt>
+<dd><p>An easy to use class to quickly build address amounts.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>address_amounts</strong> (<em>json string</em>) – import an existing json address amount: {“address”: “amounts”}</p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">defichain.node</span> <span class="kn">import</span> <span class="n">BuildAddressAmounts</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">address_amounts</span> <span class="o">=</span> <span class="n">BuildAddressAmounts</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">address_amounts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"address1"</span><span class="p">,</span> <span class="s2">"DFI"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">address_amounts</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"address2"</span><span class="p">,</span> <span class="s2">"BTC"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">address_amounts</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="go">{'address1': '1@DFI', 'address2': '2@BTC'}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="defichain.node.BuildAddressAmounts.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference internal" href="#defichain.node.BuildAddressAmounts" title="defichain.node.util.BuildAddressAmounts"><span class="pre">defichain.node.util.BuildAddressAmounts</span></a></span></span><a class="headerlink" href="#defichain.node.BuildAddressAmounts.add" title="Permalink to this definition">#</a></dt>
+<dd><p>Add an amount to already existing address amounts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<em>str</em>) – defichain address</p></li>
+<li><p><strong>coin</strong> (<em>str</em>) – the coin to use</p></li>
+<li><p><strong>amount</strong> (<em>str</em>) – the amount of the specified coin</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>“BuildAddressAmounts”</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="defichain.node.BuildAddressAmounts.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">{}</span></span></span><a class="headerlink" href="#defichain.node.BuildAddressAmounts.build" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the address amount.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns the address amount</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</section>
 </section>
 <section id="inputs">
 <span id="node-inputs"></span><h3>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">#</a></h3>
@@ -369,14 +488,14 @@ in the upper left corner or look in the <a class="reference internal" href="../.
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../additionalInfos/mnemonicSeedForWallet.html">
+          <a class="prev-page" href="../../additional/basicUsageOfRawTransactions.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">How to use mnemonic seed phrase for your wallet.dat file</div>
+                <div class="title">Basic Usage Of Transactions Builder</div>
                 
               </div>
             </a>
@@ -384,7 +503,7 @@ in the upper left corner or look in the <a class="reference internal" href="../.
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2022, Intr0c
+                Copyright &#169; 2023, Intr0c
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -416,8 +535,14 @@ in the upper left corner or look in the <a class="reference internal" href="../.
 <li><a class="reference internal" href="#node-modules">Node Modules</a></li>
 <li><a class="reference internal" href="#request-structure">Request Structure</a></li>
 <li><a class="reference internal" href="#default-inputs">Default Inputs</a><ul>
-<li><a class="reference internal" href="#amounts">Amounts</a></li>
-<li><a class="reference internal" href="#address-amount">Address Amount</a></li>
+<li><a class="reference internal" href="#amounts">Amounts</a><ul>
+<li><a class="reference internal" href="#module-defichain.node">BuildAmounts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#address-amount">Address Amount</a><ul>
+<li><a class="reference internal" href="#buildaddressamounts">BuildAddressAmounts</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#inputs">Inputs</a></li>
 </ul>
 </li>

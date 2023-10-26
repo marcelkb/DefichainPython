@@ -1,9 +1,6 @@
 import pytest
-from defichain import Ocean
-from defichain.exceptions.BadRequest import BadRequest
-
-ocean = Ocean()
-
+from . import ocean
+from defichain.exceptions.http.BadRequest import BadRequest
 
 HEX = "0400000001616cd43cb0d396c52d6a5342f9411307a4dc4847f9237ff8bbb62e0c247be803010000006a4730440220119839df669bf6e" \
       "b24dd7b806cdb782ffc1ffa892fd663b5be6bf3d22cc9fdd9022028f4e981bcbcfbec0ff508a9b67fd353840ed3132c4528ecc894b90c" \
@@ -28,3 +25,9 @@ def test_test():  # 02
         assert ocean.rawTx.test(HEX)
         assert ocean.rawTx.test(HEX, 0.001)
         assert ocean.rawTx.test(hex=HEX, maxFeeRate=0.001)
+
+
+@pytest.mark.query
+def test_get():  # 03
+    assert ocean.rawTx.get("af6294e9729c6a4f31439e86374541658f35f4cc372a51e06c725429d875ac5c")
+    assert ocean.rawTx.get("af6294e9729c6a4f31439e86374541658f35f4cc372a51e06c725429d875ac5c")

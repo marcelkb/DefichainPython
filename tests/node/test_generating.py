@@ -1,10 +1,10 @@
 import pytest
-from tests.util import createNode, load_secrets_conf
+from tests.util import load_secrets_conf
 
 # Import Exceptions
-from defichain.exceptions.InternalServerError import InternalServerError
+from defichain.exceptions.http.InternalServerError import InternalServerError
 
-node = createNode()
+from . import node
 address = load_secrets_conf()["wallet_address"]
 
 

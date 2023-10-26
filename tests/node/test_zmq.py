@@ -1,7 +1,6 @@
 import pytest
-from tests.util import createNode
 
-node = createNode()
+from . import node
 
 
 @pytest.mark.query

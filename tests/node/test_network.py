@@ -1,10 +1,9 @@
 import pytest
-from tests.util import createNode
 
 # Import Exceptions
-from defichain.exceptions.InternalServerError import InternalServerError
+from defichain.exceptions.http.InternalServerError import InternalServerError
 
-node = createNode()
+from . import node
 
 
 @pytest.mark.query
